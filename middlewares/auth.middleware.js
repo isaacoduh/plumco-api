@@ -17,4 +17,24 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = { authMiddleware };
+const authorize = (requiredRole) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Unauthenticated user!" });
+    }
+
+    if (req.user.role !== requiredRole) {
+      return res.status(403).json({
+        success: false,
+        message:
+          "Forbidden: You do not have permission to perform this action!",
+      });
+    }
+
+    next();
+  };
+};
+
+module.exports = { authMiddleware, authorize };
