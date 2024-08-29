@@ -6,6 +6,7 @@ require("dotenv").config({});
 
 const authRoutes = require("./routes/auth.routes");
 const adminProductRoutes = require("./routes/admin/product.routes");
+const adminOrderRoutes = require("./routes/admin/order.routes");
 
 mongoose
   .connect(`${process.env.MONGODB_URI}`)
@@ -21,5 +22,6 @@ app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/admin/products", adminProductRoutes);
+app.use("/api/v1/admin/orders", adminOrderRoutes);
 
 app.listen(PORT, () => console.log(`PlumCO API Server Started on ${PORT}`));
