@@ -55,7 +55,7 @@ const updateOrderStatus = catchAsyncErrors(async (req, res) => {
         .json({ success: false, message: "Order not found!" });
     }
 
-    await Order.findByIdAndUpdate({ orderStatus });
+    await Order.findByIdAndUpdate(id, { orderStatus });
 
     res
       .status(200)
