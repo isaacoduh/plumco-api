@@ -6,7 +6,7 @@ const getFilteredProducts = catchAsyncErrors(async (req, res) => {
     const { category = [], brand = [], sortBy = "price-lowtohigh" } = req.query;
     let filters = {};
     if (category.length) {
-      filters.category = { $in: cateory.split(",") };
+      filters.category = { $in: category.split(",") };
     }
 
     if (brand.length) {
