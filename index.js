@@ -27,6 +27,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://your-production-domain.com",
   "http://localhost:5173",
+  "https://io-plumco.netlify.app",
 ]; // Add your allowed origins here
 
 app.use(
