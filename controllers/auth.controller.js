@@ -60,10 +60,11 @@ const login = catchAsyncErrors(async (req, res) => {
 
     res
       .status(200)
-      .cookie("token", token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-      })
+      // .cookie("token", token, {
+      //   httpOnly: true,
+      //   secure: process.env.NODE_ENV === "production",
+      // })
+      .cookie("token", token)
       .json({
         succes: true,
         message: "Logged In Successfully",
